@@ -28,7 +28,7 @@
                         <span class="phone-icon">📞</span>
                         <a href="tel:+48123456789">+48 123 456 789</a>
                     </div>
-                    <div class="contact-hours">Pn-Pt: 8:00-18:00</div>
+                    <div class="contact-hours">7 dni w tygodniu 24h otwarte</div>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                         <span class="btn-icon">📞</span>
                         ZADZWOŃ TERAZ
                     </a>
-                    <a href="#form" class="btn btn-secondary">
+                    <a href="#valuationForm" class="btn btn-secondary">
                         <span class="btn-icon">🚗</span>
                         WYCEŃ AUTO
                     </a>
@@ -84,7 +84,7 @@
                 <h2 class="form-title">DARMOWA WYCENA ONLINE</h2>
                 <p class="form-subtitle">Otrzymaj wycenę w 15 minut!</p>
                 
-                <form id="valuationForm" class="valuation-form" action="https://formspree.io/f/xangpnww" method="POST">
+                <form id="valuationForm" class="valuation-form" action="https://formspree.io/f/xzzljrqn" method="POST">
                     <input type="hidden" name="_subject" value="Nowa wycena samochodu - Formularz online">
                     
                     <div class="form-row">
@@ -110,6 +110,12 @@
                         </div>
                     </div>
                     
+                    <!-- DODATKOWE INFORMACJE -->
+                    <div class="form-group">
+                        <label class="form-label">Dodatkowe informacje</label>
+                        <textarea name="additional_info" placeholder="Opisz stan auta, uszkodzenia, wyposażenie, historię serwisową..." rows="4"></textarea>
+                    </div>
+                    
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Imię i nazwisko" required>
                     </div>
@@ -133,22 +139,22 @@
         <div class="container">
             <h2 class="section-title">DLACZEGO WARTO WYBRAĆ NAS?</h2>
             <div class="advantages-grid">
-                <div class="advantage">
+                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="advantage-icon">💵</div>
                     <h3>NAJWYŻSZE CENY</h3>
                     <p>Oferujemy konkurencyjne ceny na rynku skupu samochodów</p>
                 </div>
-                <div class="advantage">
+                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="advantage-icon">⚡</div>
                     <h3>SZYBKA TRANSAKCJA</h3>
                     <p>Gotówka w 30 minut, wszystkie formalności załatwiamy za Ciebie</p>
                 </div>
-                <div class="advantage">
+                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="advantage-icon">🚙</div>
                     <h3>DOJAZD DO KLIENTA</h3>
                     <p>Odbierzemy Twój samochód z dowolnego miejsca</p>
                 </div>
-                <div class="advantage">
+                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="advantage-icon">🔄</div>
                     <h3>KAŻDY STAN AUTA</h3>
                     <p>Kupujemy auta sprawne, uszkodzone, powypadkowe</p>
@@ -162,32 +168,32 @@
         <div class="container">
             <h2 class="section-title">KUPUJEMY KAŻDY SAMOCHÓD</h2>
             <div class="offer-grid">
-                <div class="offer-item">
+                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="offer-icon">🚗</div>
                     <h3>OSOBOWE</h3>
                     <p>Samochody osobowe wszystkich marek</p>
                 </div>
-                <div class="offer-item">
+                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="offer-icon">💥</div>
                     <h3>POWYPADKOWE</h3>
                     <p>Auta po kolizjach i wypadkach</p>
                 </div>
-                <div class="offer-item">
+                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="offer-icon">🚛</div>
                     <h3>DOSTAWCZE</h3>
                     <p>Vany, busy, samochody dostawcze</p>
                 </div>
-                <div class="offer-item">
+                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="offer-icon">💰</div>
                     <h3>ZADŁUŻONE</h3>
                     <p>Auta z obciążeniami i długami</p>
                 </div>
-                <div class="offer-item">
+                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="offer-icon">🏁</div>
                     <h3>SPORTOWE</h3>
                     <p>Samochody sportowe i tuningowane</p>
                 </div>
-                <div class="offer-item">
+                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="offer-icon">🔧</div>
                     <h3>DO NAPRAWY</h3>
                     <p>Wymagające remontu i regeneracji</p>
@@ -220,15 +226,14 @@
                         <div class="contact-icon">✉️</div>
                         <div>
                             <h3>EMAIL</h3>
-                            <p><a href="mailto:skup@aut.pl">skup@aut.pl</a></p>
+                            <p><a href="mailto:skupnaszybko@gmail.com">skupnaszybko@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🕒</div>
                         <div>
                             <h3>GODZINY OTWARCIA</h3>
-                            <p>Poniedziałek - Piątek: 8:00-18:00<br>
-                               Sobota: 9:00-14:00</p>
+                            <p>7 dni w tygodniu 24h otwarte</p>
                         </div>
                     </div>
                 </div>
@@ -269,12 +274,11 @@
                     <h4>KONTAKT</h4>
                     <p>📞 +48 123 456 789</p>
                     <p>📱 WhatsApp: +48 123 456 789</p>
-                    <p>✉️ skup@aut.pl</p>
+                    <p>✉️ skupnaszybko@gmail.com</p>
                 </div>
                 <div class="footer-section">
                     <h4>GODZINY</h4>
-                    <p>Pn-Pt: 8:00-18:00</p>
-                    <p>Sob: 9:00-14:00</p>
+                    <p>7 dni w tygodniu 24h otwarte</p>
                 </div>
             </div>
             <div class="footer-bottom">
