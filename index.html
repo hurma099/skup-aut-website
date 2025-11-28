@@ -5,7 +5,661 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKUP AUT - Szybki skup samochodów | Gotówka od ręki</title>
     <meta name="description" content="Profesjonalny skup samochodów. Gotówka od ręki, darmowa wycena, dojazd do klienta. Kupujemy auta w każdym stanie!">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #000;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ff6b00;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .logo h1 span {
+            color: #ff6b00;
+        }
+
+        .logo p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #ff6b00;
+        }
+
+        .nav-contact {
+            color: #ff6b00 !important;
+            font-weight: 600 !important;
+        }
+
+        .header-contact {
+            text-align: right;
+        }
+
+        .phone-number {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .phone-number a {
+            color: #ff6b00;
+            text-decoration: none;
+        }
+
+        .contact-hours {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Main Banner */
+        .main-banner {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            padding: 150px 0 80px;
+            margin-top: 70px;
+        }
+
+        .banner-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .banner-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .title-line {
+            display: block;
+        }
+
+        .highlight {
+            color: #ff6b00;
+        }
+
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 107, 0, 0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            border: 1px solid #ff6b00;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .banner-subtitle {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .banner-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            color: #ff6b00;
+        }
+
+        .banner-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #ff6b00;
+            color: black;
+        }
+
+        .btn-primary:hover {
+            background: #ff8c00;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #ff6b00;
+        }
+
+        .btn-secondary:hover {
+            background: #ff6b00;
+            color: black;
+            transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            font-size: 18px;
+        }
+
+        /* Map */
+        .map-container {
+            position: relative;
+            height: 400px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #ff6b00;
+        }
+
+        .simplified-map {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .map-title {
+            color: #ff6b00;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .covered-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .area-item {
+            background: rgba(255, 107, 0, 0.1);
+            border: 1px solid #ff6b00;
+            border-radius: 8px;
+            padding: 12px 15px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .area-item:hover {
+            background: #ff6b00;
+            color: black;
+            transform: translateY(-2px);
+        }
+
+        .map-note {
+            color: #ff6b00;
+            font-weight: 600;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Quick Form */
+        .quick-form {
+            background: #1a1a1a;
+            padding: 80px 0;
+        }
+
+        .form-box {
+            background: #000;
+            padding: 50px;
+            border-radius: 15px;
+            border: 2px solid #ff6b00;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #ff6b00;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .valuation-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ff6b00;
+        }
+
+        input, select, textarea {
+            padding: 15px;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 8px;
+            font-size: 16px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #ff6b00;
+        }
+
+        .btn-submit {
+            background: #ff6b00;
+            color: black;
+            justify-content: center;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        .btn-submit:hover {
+            background: #ff8c00;
+            transform: translateY(-2px);
+        }
+
+        /* Photo Info */
+        .photo-info {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b00;
+        }
+
+        .photo-info p {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .photo-info ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .photo-info li {
+            margin-bottom: 5px;
+        }
+
+        /* Why Us Section */
+        .why-us {
+            padding: 80px 0;
+            background: #000;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #ff6b00;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage {
+            background: #1a1a1a;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid #333;
+        }
+
+        .advantage:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b00;
+            background: #000;
+        }
+
+        .advantage-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff6b00;
+        }
+
+        .advantage h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ff6b00;
+        }
+
+        .advantage p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Offer Section */
+        .offer {
+            padding: 80px 0;
+            background: #1a1a1a;
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .offer-item {
+            background: #000;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid #333;
+        }
+
+        .offer-item:hover {
+            transform: translateY(-3px);
+            border-color: #ff6b00;
+        }
+
+        .offer-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #ff6b00;
+        }
+
+        .offer-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ff6b00;
+        }
+
+        .offer-item p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #000;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            transition: all 0.3s;
+            border: 1px solid #333;
+        }
+
+        .contact-item:hover {
+            border-color: #ff6b00;
+        }
+
+        .highlight-item {
+            background: rgba(255, 107, 0, 0.05);
+            border: 2px solid #ff6b00;
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+            color: #ff6b00;
+        }
+
+        .contact-item h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #ff6b00;
+        }
+
+        .contact-item p {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .highlight-text {
+            color: #ff6b00 !important;
+            text-decoration: none;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-form {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #ff6b00;
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #ff6b00;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            padding: 50px 0 20px;
+            border-top: 2px solid #ff6b00;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            color: #ff6b00;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .nav {
+                gap: 15px;
+            }
+            
+            .banner-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .banner-title {
+                font-size: 36px;
+            }
+            
+            .banner-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .banner-buttons {
+                flex-direction: column;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .offer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .covered-areas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .offer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-box {
+                padding: 30px 20px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .covered-areas {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -131,30 +785,17 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label">Stan techniczny</label>
-                            <div class="condition-options">
-                                <div class="condition-option" data-value="dobry">Dobry</div>
-                                <div class="condition-option" data-value="sredni">Średni</div>
-                                <div class="condition-option" data-value="uszkodzony">Uszkodzony</div>
-                                <div class="condition-option" data-value="po_kolizji">Po kolizji</div>
-                                <div class="condition-option" data-value="nie_odpala">Nie odpala</div>
-                            </div>
-                            <input type="hidden" name="condition" id="condition" required>
+                            <select name="condition" required>
+                                <option value="">Stan techniczny</option>
+                                <option value="dobry">Dobry</option>
+                                <option value="sredni">Średni</option>
+                                <option value="uszkodzony">Uszkodzony</option>
+                                <option value="po_kolizji">Po kolizji</option>
+                                <option value="nie_odpala">Nie odpala</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Lokalizacja</label>
-                            <select name="location" class="location-select" required>
-                                <option value="">Wybierz lokalizację</option>
-                                <option value="warszawa">Warszawa</option>
-                                <option value="radom">Radom</option>
-                                <option value="plock">Płock</option>
-                                <option value="siedlce">Siedlce</option>
-                                <option value="ostroleka">Ostrołęka</option>
-                                <option value="ciechanow">Ciechanów</option>
-                                <option value="zyrardow">Żyrardów</option>
-                                <option value="minsk_maz">Mińsk Mazowiecki</option>
-                                <option value="inna">Inna lokalizacja</option>
-                            </select>
+                            <input type="text" name="location" placeholder="Lokalizacja (miasto)" required>
                         </div>
                     </div>
 
@@ -357,33 +998,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Condition selection
-        document.querySelectorAll('.condition-option').forEach(option => {
-            option.addEventListener('click', function() {
-                // Remove selected class from all options
-                document.querySelectorAll('.condition-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                
-                // Add selected class to clicked option
-                this.classList.add('selected');
-                
-                // Update hidden input value
-                document.getElementById('condition').value = this.getAttribute('data-value');
-            });
-        });
-
-        // Form validation
-        document.getElementById('valuationForm').addEventListener('submit', function(e) {
-            const condition = document.getElementById('condition').value;
-            if (!condition) {
-                e.preventDefault();
-                alert('Proszę wybrać stan techniczny auta');
-                return false;
-            }
-        });
-    </script>
 </body>
 </html>
