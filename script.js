@@ -1,11 +1,9 @@
-// Simple form handling
+// Simple form handling for Formspree
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('valuationForm');
     
     if (form) {
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             const submitBtn = this.querySelector('.btn-submit');
             const originalText = submitBtn.innerHTML;
             
@@ -13,22 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = '📨 Wysyłanie...';
             submitBtn.disabled = true;
             
-            // Show success after 1 second
-            setTimeout(function() {
-                alert('✅ Dziękujemy! Twoja wycena została zapisana.\n\n📞 Proszę zadzwonić: +48 123 456 789\n📱 Lub napisać na WhatsApp z zdjęciami auta!');
-                
-                // Reset form
-                form.reset();
-                
-                // Restore button
+            // Formspree will handle the actual submission
+            console.log('Form submitted to Formspree');
+            
+            // Restore button after 3 seconds (in case of error)
+            setTimeout(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            }, 1000);
+            }, 3000);
         });
         
-        console.log('✅ Form found and event listener added');
-    } else {
-        console.log('❌ Form not found! Check id="valuationForm"');
+        console.log('✅ Form found and Formspree configured');
     }
 });
 
