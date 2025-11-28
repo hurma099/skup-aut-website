@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKUP AUT - Szybki skup samochodów</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>SKUP AUT</h1>
+                <span>Profesjonalny skup samochodów</span>
+            </div>
+            <nav>
+                <a href="#services">Usługi</a>
+                <a href="#about">O nas</a>
+                <a href="#contact">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Skup samochodów gotówką od ręki!</h2>
+            <p>Najlepsze ceny • Darmowa wycena • Pieniądze od ręki</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-primary">Zadzwoń teraz</a>
+                <a href="#form" class="btn-secondary">Wyślij zgłoszenie</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Nasze usługi</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Skup używanych aut</h3>
+                    <p>Kupujemy samochody w każdym stanie technicznym</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💥</div>
+                    <h3>Aut po wypadkach</h3>
+                    <p>Skup uszkodzonych samochodów po kolizjach</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Gotówka od ręki</h3>
+                    <p>Natychmiastowa wypłata gotówki za samochód</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚛</div>
+                    <h3>Bezpłatny transport</h3>
+                    <p>Odbierzemy auto z dowolnego miejsca</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="form" class="contact-form">
+        <div class="container">
+            <h2>Wyceń swój samochód</h2>
+            <form id="carForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Marka i model" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Rok produkcji" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Przebieg (km)" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Stan techniczny</option>
+                        <option value="good">Dobry</option>
+                        <option value="average">Średni</option>
+                        <option value="bad">Uszkodzony</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Twój numer telefonu" required>
+                </div>
+                <button type="submit" class="btn-primary">Wyceń samochód</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📞 Telefon</h3>
+                    <p>+48 123 456 789</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📱 WhatsApp</h3>
+                    <p>+48 123 456 789</p>
+                </div>
+                <div class="contact-item">
+                    <h3>✉️ Email</h3>
+                    <p>skup@aut.pl</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🕒 Godziny otwarcia</h3>
+                    <p>Pon-Pt: 8:00-18:00<br>Sob: 9:00-14:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SKUP AUT. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
