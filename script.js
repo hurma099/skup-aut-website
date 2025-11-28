@@ -1,4 +1,22 @@
-// Simple form handling for Formspree
+// Smooth scroll for navigation and form buttons
+document.querySelectorAll('nav a, .btn-secondary, .advantage, .offer-item').forEach(element => {
+    element.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId.startsWith('#') && targetId !== '#contact') {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 100;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+
+// Form handling for Formspree
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('valuationForm');
     
