@@ -65,10 +65,10 @@ document.getElementById('valuationForm').addEventListener('submit', function(e) 
 // SendGrid API function
 async function sendEmailSendGrid(formData) {
     // ZASTĄP TYM KLUCZEM: Twój SendGrid API Key
-    const SENDGRID_API_KEY = 'SG.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+    const SENDGRID_API_KEY = 'SG.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';
     
     // ZASTĄP TYM ID: Twój Template ID z SendGrid
-    const TEMPLATE_ID = 'd-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+    const TEMPLATE_ID = 'd-b0fb400d34d742908d693e773e5f968e ';
     
     const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
         method: 'POST',
