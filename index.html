@@ -38,40 +38,65 @@
     <section id="main" class="main-banner">
         <div class="container">
             <div class="banner-content">
-                <h1 class="banner-title">
-                    <span class="title-line">SKUP SAMOCHODÓW</span>
-                    <span class="title-line highlight">GOTÓWKA OD RĘKI!</span>
-                </h1>
-                <p class="banner-subtitle">Najwyższe ceny, natychmiastowa wypłata, dojazd do klienta</p>
-                
-                <div class="banner-features">
-                    <div class="feature">
-                        <span class="feature-icon">💰</span>
-                        <span>Gotówka od ręki</span>
+                <div class="banner-text">
+                    <h1 class="banner-title">
+                        <span class="title-line">SKUP SAMOCHODÓW</span>
+                        <span class="title-line highlight">GOTÓWKA OD RĘKI!</span>
+                    </h1>
+                    <div class="location-badge">
+                        <span class="location-icon">📍</span>
+                        Województwo Mazowieckie
                     </div>
-                    <div class="feature">
-                        <span class="feature-icon">🚗</span>
-                        <span>Dojazd do klienta</span>
+                    <p class="banner-subtitle">Najwyższe ceny, natychmiastowa wypłata, dojazd do klienta</p>
+                    
+                    <div class="banner-features">
+                        <div class="feature">
+                            <span class="feature-icon">💰</span>
+                            <span>Gotówka od ręki</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🚗</span>
+                            <span>Dojazd do klienta</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">⚡</span>
+                            <span>Wycena w 15 min</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✅</span>
+                            <span>Każdy stan auta</span>
+                        </div>
                     </div>
-                    <div class="feature">
-                        <span class="feature-icon">⚡</span>
-                        <span>Wycena w 15 min</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">✅</span>
-                        <span>Każdy stan auta</span>
+
+                    <div class="banner-buttons">
+                        <a href="tel:+48123456789" class="btn btn-primary">
+                            <span class="btn-icon">📞</span>
+                            ZADZWOŃ TERAZ
+                        </a>
+                        <a href="#valuationForm" class="btn btn-secondary">
+                            <span class="btn-icon">🚗</span>
+                            WYCEŃ AUTO
+                        </a>
                     </div>
                 </div>
-
-                <div class="banner-buttons">
-                    <a href="tel:+48123456789" class="btn btn-primary">
-                        <span class="btn-icon">📞</span>
-                        ZADZWOŃ TERAZ
-                    </a>
-                    <a href="#valuationForm" class="btn btn-secondary">
-                        <span class="btn-icon">🚗</span>
-                        WYCEŃ AUTO
-                    </a>
+                <div class="banner-map">
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <div class="map-point">
+                                <div class="pulse-dot"></div>
+                                <span class="map-label">Warszawa</span>
+                            </div>
+                            <div class="map-point" style="top: 40%; left: 55%;">
+                                <div class="pulse-dot"></div>
+                                <span class="map-label">Radom</span>
+                            </div>
+                            <div class="map-point" style="top: 60%; left: 45%;">
+                                <div class="pulse-dot"></div>
+                                <span class="map-label">Płock</span>
+                            </div>
+                            <div class="region-outline"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -95,10 +120,17 @@
                             <input type="number" name="year" placeholder="Rok produkcji" required>
                         </div>
                     </div>
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" name="mileage" placeholder="Przebieg (km)" required>
                         </div>
+                        <div class="form-group">
+                            <input type="text" name="engine" placeholder="Silnik (pojemność, rodzaj)" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
                         <div class="form-group">
                             <select name="condition" required>
                                 <option value="">Stan techniczny</option>
@@ -108,6 +140,25 @@
                                 <option value="damaged">Uszkodzony</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <input type="text" name="location" placeholder="Lokalizacja (miasto)" required>
+                        </div>
+                    </div>
+
+                    <!-- ZDJĘCIA -->
+                    <div class="form-group">
+                        <label class="form-label">Zdjęcia auta (informacja)</label>
+                        <div class="photo-info">
+                            <p>📸 Prosimy o przygotowanie zdjęć:</p>
+                            <ul>
+                                <li>Przód auta</li>
+                                <li>Tył auta</li>
+                                <li>Boki auta</li>
+                                <li>Wnętrze</li>
+                                <li>Uszkodzenia (jeśli występują)</li>
+                            </ul>
+                            <p>Zdjęcia można wysłać przez WhatsApp po kontakcie</p>
+                        </div>
                     </div>
                     
                     <!-- DODATKOWE INFORMACJE -->
@@ -116,9 +167,6 @@
                         <textarea name="additional_info" placeholder="Opisz stan auta, uszkodzenia, wyposażenie, historię serwisową..." rows="4"></textarea>
                     </div>
                     
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Imię i nazwisko" required>
-                    </div>
                     <div class="form-group">
                         <input type="tel" name="phone" placeholder="Twój numer telefonu" required>
                     </div>
@@ -142,22 +190,32 @@
                 <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="advantage-icon">💵</div>
                     <h3>NAJWYŻSZE CENY</h3>
-                    <p>Oferujemy konkurencyjne ceny na rynku skupu samochodów</p>
+                    <p>Oferujemy najwyższe ceny na rynku dzięki bezpośrednim transakcjom bez pośredników. Płacimy gotówką od ręki bez zbędnych formalności i prowizji.</p>
                 </div>
                 <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="advantage-icon">⚡</div>
-                    <h3>SZYBKA TRANSAKCJA</h3>
-                    <p>Gotówka w 30 minut, wszystkie formalności załatwiamy za Ciebie</p>
+                    <h3>EKSPRESOWA WYCENA</h3>
+                    <p>Działamy błyskawicznie - wycenę otrzymasz w 15 minut, a całą transakcję finalizujemy w ciągu 30 minut. Oszczędzamy Twój cenny czas.</p>
                 </div>
                 <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="advantage-icon">🚙</div>
-                    <h3>DOJAZD DO KLIENTA</h3>
-                    <p>Odbierzemy Twój samochód z dowolnego miejsca</p>
+                    <h3>DOJAZD 24/7</h3>
+                    <p>Dojeżdżamy do Ciebie o każdej porze dnia i nocy, 7 dni w tygodniu. Odbierzemy Twój samochód z dowolnego miejsca w Polsce całkowicie bezpłatnie.</p>
                 </div>
                 <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
                     <div class="advantage-icon">🔄</div>
                     <h3>KAŻDY STAN AUTA</h3>
-                    <p>Kupujemy auta sprawne, uszkodzone, powypadkowe</p>
+                    <p>Kupujemy samochody w każdym stanie technicznym - sprawne, uszkodzone, powypadkowe, z zadłużeniem lub bez dokumentów. Każde auto ma dla nas wartość.</p>
+                </div>
+                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
+                    <div class="advantage-icon">📋</div>
+                    <h3>BEZPIECZNE TRANSAKCJE</h3>
+                    <p>Gwarantujemy bezpieczne i uczciwe transakcje. Wszystkie formalności załatwiamy za Ciebie, zapewniając pełną ochronę prawną i przejrzyste warunki współpracy.</p>
+                </div>
+                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
+                    <div class="advantage-icon">⭐</div>
+                    <h3>DOŚWIADCZENIE</h3>
+                    <p>Dzięki wieloletniemu doświadczeniu w skupie aut oferujemy profesjonalną obsługę i rzetelne wyceny. Zaufaj specjalistom w branży motoryzacyjnej.</p>
                 </div>
             </div>
         </div>
