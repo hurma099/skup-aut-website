@@ -57,18 +57,4 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentYear = new Date().getFullYear();
         yearElement.innerHTML = `&copy; ${currentYear} SKUP AUT. Wszelkie prawa zastrzeżone.`;
     }
-});// Condition selection
-document.querySelectorAll('.condition-option').forEach(option => {
-    option.addEventListener('click', function() {
-        // Remove selected class from all options
-        document.querySelectorAll('.condition-option').forEach(opt => {
-            opt.classList.remove('selected');
-        });
-        
-        // Add selected class to clicked option
-        this.classList.add('selected');
-        
-        // Update hidden input value
-        document.getElementById('condition').value = this.getAttribute('data-value');
-    });
 });
