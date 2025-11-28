@@ -1,4 +1,4 @@
-// Form handling for Formspree
+// Simple form handling for Formspree
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('valuationForm');
     
@@ -11,17 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = '📨 Wysyłanie...';
             submitBtn.disabled = true;
             
-            // Form will be submitted to Formspree
+            // Formspree will handle the actual submission
             console.log('Form submitted to Formspree');
             
-            // Restore button after form redirects
+            // Restore button after 3 seconds
             setTimeout(() => {
-                // This will only run if form doesn't redirect (error case)
-                if (!submitBtn.disabled) {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }
-            }, 5000);
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
         });
         
         console.log('✅ Form found and Formspree configured');
