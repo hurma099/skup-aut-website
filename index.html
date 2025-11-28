@@ -131,17 +131,30 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <select name="condition" required>
-                                <option value="">Stan techniczny</option>
-                                <option value="dobry">Dobry</option>
-                                <option value="sredni">Średni</option>
-                                <option value="uszkodzony">Uszkodzony</option>
-                                <option value="po_kolizji">Po kolizji</option>
-                                <option value="nie_odpala">Nie odpala</option>
-                            </select>
+                            <label class="form-label">Stan techniczny</label>
+                            <div class="condition-options">
+                                <div class="condition-option" data-value="dobry">Dobry</div>
+                                <div class="condition-option" data-value="sredni">Średni</div>
+                                <div class="condition-option" data-value="uszkodzony">Uszkodzony</div>
+                                <div class="condition-option" data-value="po_kolizji">Po kolizji</div>
+                                <div class="condition-option" data-value="nie_odpala">Nie odpala</div>
+                            </div>
+                            <input type="hidden" name="condition" id="condition" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="location" placeholder="Lokalizacja (miasto)" required>
+                            <label class="form-label">Lokalizacja</label>
+                            <select name="location" class="location-select" required>
+                                <option value="">Wybierz lokalizację</option>
+                                <option value="warszawa">Warszawa</option>
+                                <option value="radom">Radom</option>
+                                <option value="plock">Płock</option>
+                                <option value="siedlce">Siedlce</option>
+                                <option value="ostroleka">Ostrołęka</option>
+                                <option value="ciechanow">Ciechanów</option>
+                                <option value="zyrardow">Żyrardów</option>
+                                <option value="minsk_maz">Mińsk Mazowiecki</option>
+                                <option value="inna">Inna lokalizacja</option>
+                            </select>
                         </div>
                     </div>
 
@@ -345,6 +358,32 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Condition selection
+        document.querySelectorAll('.condition-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                document.querySelectorAll('.condition-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Update hidden input value
+                document.getElementById('condition').value = this.getAttribute('data-value');
+            });
+        });
+
+        // Form validation
+        document.getElementById('valuationForm').addEventListener('submit', function(e) {
+            const condition = document.getElementById('condition').value;
+            if (!condition) {
+                e.preventDefault();
+                alert('Proszę wybrać stan techniczny auta');
+                return false;
+            }
+        });
+    </script>
 </body>
 </html>
