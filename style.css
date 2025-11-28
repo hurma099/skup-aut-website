@@ -1,131 +1,544 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKUP AUT - Szybki skup samochodów</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>SKUP AUT</h1>
-                <span>Profesjonalny skup samochodów</span>
-            </div>
-            <nav>
-                <a href="#services">Usługi</a>
-                <a href="#about">O nas</a>
-                <a href="#contact">Kontakt</a>
-            </nav>
-        </div>
-    </header>
+/* Фиолетово-красная цветовая схема */
+:root {
+    --primary-purple: #4c1d95;
+    --dark-purple: #2d1060;
+    --light-purple: #6d28d9;
+    --accent-red: #dc2626;
+    --light-red: #ef4444;
+    --text-light: #ffffff;
+    --text-dark: #1f2937;
+    --gray-light: #f3f4f6;
+}
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>Skup samochodów gotówką od ręki!</h2>
-            <p>Najlepsze ceny • Darmowa wycena • Pieniądze od ręki</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn-primary">Zadzwoń teraz</a>
-                <a href="#form" class="btn-secondary">Wyślij zgłoszenie</a>
-            </div>
-        </div>
-    </section>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Services -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Nasze usługi</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🚗</div>
-                    <h3>Skup używanych aut</h3>
-                    <p>Kupujemy samochody w każdym stanie technicznym</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💥</div>
-                    <h3>Aut po wypadkach</h3>
-                    <p>Skup uszkodzonych samochodów po kolizjach</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💰</div>
-                    <h3>Gotówka od ręki</h3>
-                    <p>Natychmiastowa wypłata gotówki za samochód</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚛</div>
-                    <h3>Bezpłatny transport</h3>
-                    <p>Odbierzemy auto z dowolnego miejsca</p>
-                </div>
-            </div>
-        </div>
-    </section>
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--gray-light);
+}
 
-    <!-- Contact Form -->
-    <section id="form" class="contact-form">
-        <div class="container">
-            <h2>Wyceń swój samochód</h2>
-            <form id="carForm">
-                <div class="form-group">
-                    <input type="text" placeholder="Marka i model" required>
-                </div>
-                <div class="form-group">
-                    <input type="number" placeholder="Rok produkcji" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Przebieg (km)" required>
-                </div>
-                <div class="form-group">
-                    <select required>
-                        <option value="">Stan techniczny</option>
-                        <option value="good">Dobry</option>
-                        <option value="average">Średni</option>
-                        <option value="bad">Uszkodzony</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Twój numer telefonu" required>
-                </div>
-                <button type="submit" class="btn-primary">Wyceń samochód</button>
-            </form>
-        </div>
-    </section>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Kontakt</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>📞 Telefon</h3>
-                    <p>+48 123 456 789</p>
-                </div>
-                <div class="contact-item">
-                    <h3>📱 WhatsApp</h3>
-                    <p>+48 123 456 789</p>
-                </div>
-                <div class="contact-item">
-                    <h3>✉️ Email</h3>
-                    <p>skup@aut.pl</p>
-                </div>
-                <div class="contact-item">
-                    <h3>🕒 Godziny otwarcia</h3>
-                    <p>Pon-Pt: 8:00-18:00<br>Sob: 9:00-14:00</p>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Header */
+.header {
+    background: var(--primary-purple);
+    color: var(--text-light);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 SKUP AUT. Wszelkie prawa zastrzeżone.</p>
-        </div>
-    </footer>
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.logo h1 span {
+    color: var(--accent-red);
+}
+
+.logo p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: var(--accent-red);
+}
+
+.nav-contact {
+    color: var(--accent-red) !important;
+    font-weight: 700 !important;
+}
+
+.header-contact {
+    text-align: right;
+}
+
+.phone-number a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.contact-hours {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Main Banner */
+.main-banner {
+    background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+    color: var(--text-light);
+    padding: 140px 0 80px;
+    margin-top: 80px;
+}
+
+.banner-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.title-line {
+    display: block;
+}
+
+.highlight {
+    color: var(--accent-red);
+}
+
+.banner-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.banner-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+}
+
+.banner-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: var(--accent-red);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background: var(--light-red);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--text-light);
+}
+
+.btn-secondary:hover {
+    background: var(--text-light);
+    color: var(--primary-purple);
+}
+
+.btn-submit {
+    background: var(--accent-red);
+    color: var(--text-light);
+    width: 100%;
+    justify-content: center;
+    padding: 18px 30px;
+    font-size: 1.1rem;
+}
+
+.btn-submit:hover {
+    background: var(--light-red);
+    transform: translateY(-2px);
+}
+
+/* Quick Form */
+.quick-form {
+    padding: 60px 0;
+    background: var(--gray-light);
+}
+
+.form-box {
+    background: var(--text-light);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-title {
+    color: var(--primary-purple);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.form-subtitle {
+    text-align: center;
+    color: var(--light-purple);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.valuation-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--light-purple);
+    box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1);
+}
+
+/* Sections */
+.why-us, .offer, .contact {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--light-purple);
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+/* Advantages Grid */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.advantage {
+    background: var(--text-light);
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.advantage:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-red);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.advantage-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.advantage h3 {
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.advantage p {
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Offer Grid */
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.offer-item {
+    background: var(--text-light);
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.offer-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-red);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.offer-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.offer-item h3 {
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.offer-item p {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+/* Contact */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--text-light);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.highlight-item {
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    color: var(--text-light);
+    border: 2px solid var(--accent-red);
+}
+
+.highlight-text {
+    color: var(--accent-red) !important;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.highlight-item a {
+    color: var(--text-light) !important;
+}
+
+.contact-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: var(--accent-red);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+}
+
+.contact-form {
+    background: var(--text-light);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.contact-form h3 {
+    color: var(--primary-purple);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-purple);
+    color: var(--text-light);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--accent-red);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .nav a {
+        margin: 0 0.5rem;
+    }
+    
+    .banner-title {
+        font-size: 2rem;
+    }
+    
+    .banner-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .banner-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .advantages-grid,
+    .offer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .form-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .contact-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .advantage,
+    .offer-item {
+        padding: 2rem 1rem;
+    }
+}
