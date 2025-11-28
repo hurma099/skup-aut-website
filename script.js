@@ -16,28 +16,98 @@ document.querySelectorAll('nav a, .nav a').forEach(anchor => {
     });
 });
 
-// Form handling
-document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const phoneInput = this.querySelector('input[type="tel"]');
-        const phoneNumber = phoneInput ? phoneInput.value : '';
-        
-        // Show success message
-        alert('Dziękujemy za zgłoszenie! Skontaktujemy się z Tobą w ciągu 15 minut.');
-        
-        // Reset form
-        this.reset();
-    });
+// Form handling with SendGrid
+document.getElementById('valuationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = this.querySelector('.btn-submit');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '📨 Wysyłanie...';
+    submitBtn.disabled = true;
+    
+    // Collect form data
+    const formData = {
+        brand: this.querySelector('[name="brand"]').value,
+        year: this.querySelector('[name="year"]').value,
+        mileage: this.querySelector('[name="mileage"]').value,
+        condition: this.querySelector('[name="condition"]').value,
+        general_condition: this.querySelector('[name="general_condition"]').value,
+        damages: getCheckboxValues('damages'),
+        equipment: getCheckboxValues('equipment'),
+        service_history: this.querySelector('[name="service_history"]').value,
+        additional_info: this.querySelector('[name="additional_info"]').value || 'Brak uwag',
+        name: this.querySelector('[name="name"]').value,
+        phone: this.querySelector('[name="phone"]').value,
+        email: this.querySelector('[name="email"]').value,
+        date: new Date().toLocaleString('pl-PL')
+    };
+    
+    // Send email using SendGrid
+    sendEmailSendGrid(formData)
+        .then(function(response) {
+            if (response.ok) {
+                alert('✅ Dziękujemy! Twoja wycena została wysłana. Skontaktujemy się z Tobą w ciągu 15 minut!');
+                document.getElementById('valuationForm').reset();
+            } else {
+                throw new Error('Błąd wysyłania');
+            }
+        })
+        .catch(function(error) {
+            console.error('Error:', error);
+            alert('❌ Przepraszamy, wystąpił błąd. Proszę spróbować ponownie lub zadzwonić bezpośrednio.');
+        })
+        .finally(function() {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
 });
+
+// SendGrid API function
+async function sendEmailSendGrid(formData) {
+    // ZASTĄP TYM KLUCZEM: Twój SendGrid API Key
+    const SENDGRID_API_KEY = 'SG.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+    
+    // ZASTĄP TYM ID: Twój Template ID z SendGrid
+    const TEMPLATE_ID = 'd-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+    
+    const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${SENDGRID_API_KEY}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            personalizations: [{
+                to: [{ 
+                    email: 'skupnaszybko@gmail.com',
+                    name: 'Skup Aut'
+                }],
+                dynamic_template_data: formData
+            }],
+            from: { 
+                email: 'noreply@skupaut.pl', 
+                name: 'Skup Aut - Formularz' 
+            },
+            reply_to: {
+                email: formData.email,
+                name: formData.name
+            },
+            template_id: TEMPLATE_ID
+        })
+    });
+    
+    return response;
+}
+
+// Helper function to get checkbox values
+function getCheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`[name="${name}"]:checked`);
+    return Array.from(checkboxes).map(cb => cb.value).join(', ') || 'Brak';
+}
 
 // Phone number validation
 document.querySelectorAll('input[type="tel"]').forEach(input => {
     input.addEventListener('input', function(e) {
-        // Allow only numbers and +
         this.value = this.value.replace(/[^\d+]/g, '');
     });
 });
@@ -86,25 +156,4 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentYear = new Date().getFullYear();
         yearElement.innerHTML = `&copy; ${currentYear} SKUP AUT. Wszelkie prawa zastrzeżone.`;
     }
-});
-
-// Add loading animation
-window.addEventListener('load', function() {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
-    
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
-});
-
-// Form input animations
-document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(input => {
-    input.addEventListener('focus', function() {
-        this.parentElement.style.transform = 'scale(1.02)';
-    });
-    
-    input.addEventListener('blur', function() {
-        this.parentElement.style.transform = 'scale(1)';
-    });
 });
