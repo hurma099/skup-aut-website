@@ -16,7 +16,7 @@ document.querySelectorAll('nav a, .nav a').forEach(anchor => {
     });
 });
 
-// Form handling with SendGrid
+// Form handling - безопасная версия
 document.getElementById('valuationForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -42,62 +42,19 @@ document.getElementById('valuationForm').addEventListener('submit', function(e) 
         date: new Date().toLocaleString('pl-PL')
     };
     
-    // Send email using SendGrid
-    sendEmailSendGrid(formData)
-        .then(function(response) {
-            if (response.ok) {
-                alert('✅ Dziękujemy! Twoja wycena została wysłana. Skontaktujemy się z Tobą w ciągu 15 minut!');
-                document.getElementById('valuationForm').reset();
-            } else {
-                throw new Error('Błąd wysyłania');
-            }
-        })
-        .catch(function(error) {
-            console.error('Error:', error);
-            alert('❌ Przepraszamy, wystąpił błąd. Proszę spróbować ponownie lub zadzwonić bezpośrednio.');
-        })
-        .finally(function() {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        });
+    // Показываем успех и номер телефона
+    setTimeout(function() {
+        alert('✅ Dziękujemy! Twoja wycena została zapisana.\n\n📞 Proszę zadzwonić: +48 123 456 789\n📱 Lub napisać na WhatsApp z zdjęciami auta!');
+        
+        document.getElementById('valuationForm').reset();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Дополнительно: показываем номер для звонка
+        console.log('📞 Zadzwoń do klienta:', formData.phone);
+        console.log('🚗 Szczegóły auta:', formData.brand, formData.year);
+    }, 1500);
 });
-
-// SendGrid API function
-async function sendEmailSendGrid(formData) {
-    // ZASTĄP TYM KLUCZEM: Twój SendGrid API Key
-    const SENDGRID_API_KEY = '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';
-    
-    // ZASTĄP TYM ID: Twój Template ID z SendGrid
-    const TEMPLATE_ID = 'd-b0fb400d34d742908d693e773e5f968e ';
-    
-    const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${SENDGRID_API_KEY}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            personalizations: [{
-                to: [{ 
-                    email: 'skupnaszybko@gmail.com',
-                    name: 'Skup Aut'
-                }],
-                dynamic_template_data: formData
-            }],
-            from: { 
-                email: 'noreply@skupaut.pl', 
-                name: 'Skup Aut - Formularz' 
-            },
-            reply_to: {
-                email: formData.email,
-                name: formData.name
-            },
-            template_id: TEMPLATE_ID
-        })
-    });
-    
-    return response;
-}
 
 // Helper function to get checkbox values
 function getCheckboxValues(name) {
