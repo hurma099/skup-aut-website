@@ -591,424 +591,106 @@
             opacity: 0.6;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            
-            .nav {
-                gap: 15px;
-            }
-            
-            .banner-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .banner-title {
-                font-size: 36px;
-            }
-            
-            .banner-features {
-                grid-template-columns: 1fr;
-            }
-            
-            .banner-buttons {
-                flex-direction: column;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .advantages-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .offer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .covered-areas {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .offer-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-box {
-                padding: 30px 20px;
-            }
-            
-            .contact-form {
-                padding: 25px;
-            }
-            
-            .covered-areas {
-                grid-template-columns: 1fr;
-            }
+            .header-content {flex-direction: column;gap: 15px;text-align: center;}
+            .nav {gap: 15px;}
+            .banner-content {grid-template-columns: 1fr;gap: 40px;}
+            .banner-title {font-size: 36px;}
+            .banner-buttons {flex-direction: column;}
+            .form-row {grid-template-columns: 1fr;}
+            .contact-content {grid-template-columns: 1fr;}
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>SKUP <span>AUT</span></h1>
-                    <p>Profesjonalny skup samochodów</p>
+
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <h1>SKUP <span>AUT</span></h1>
+                <p>Profesjonalny skup samochodów</p>
+            </div>
+
+            <nav class="nav">
+                <a href="#main">Główna</a>
+                <a href="#about">O nas</a>
+                <a href="#offer">Oferta</a>
+                <a href="#contact" class="nav-contact">Kontakt</a>
+            </nav>
+
+            <div class="header-contact">
+                <div class="phone-number">
+                    📞 <a href="tel:+48661486960">+48 661 486 960</a>
                 </div>
-                <nav class="nav">
-                    <a href="#main">Główna</a>
-                    <a href="#about">O nas</a>
-                    <a href="#offer">Oferta</a>
-                    <a href="#contact" class="nav-contact">Kontakt</a>
-                </nav>
-                <div class="header-contact">
-                    <div class="phone-number">
-                        <span class="phone-icon">📞</span>
-                        <a href="tel:+48880890947">+48 880 890 947</a>
-                    </div>
-                    <div class="contact-hours">7 dni w tygodniu 24h otwarte</div>
-                </div>
+                <div class="contact-hours">7 dni w tygodniu 24h otwarte</div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Main Banner -->
-    <section id="main" class="main-banner">
-        <div class="container">
-            <div class="banner-content">
-                <div class="banner-text">
-                    <h1 class="banner-title">
-                        <span class="title-line">SKUP SAMOCHODÓW</span>
-                        <span class="title-line highlight">GOTÓWKA OD RĘKI!</span>
-                    </h1>
-                    <div class="location-badge">
-                        <span class="location-icon">📍</span>
-                        Województwo Mazowieckie
-                    </div>
-                    <p class="banner-subtitle">Najwyższe ceny, natychmiastowa wypłata, dojazd do klienta</p>
-                    
-                    <div class="banner-features">
-                        <div class="feature">
-                            <span class="feature-icon">💰</span>
-                            <span>Gotówka od ręki</span>
-                        </div>
-                        <div class="feature">
-                            <span class="feature-icon">🚗</span>
-                            <span>Dojazd do klienta</span>
-                        </div>
-                        <div class="feature">
-                            <span class="feature-icon">⚡</span>
-                            <span>Wycena w 15 min</span>
-                        </div>
-                        <div class="feature">
-                            <span class="feature-icon">✅</span>
-                            <span>Każdy stan auta</span>
-                        </div>
-                    </div>
+<section id="main" class="main-banner">
+    <div class="container banner-content">
+        <div>
+            <h1 class="banner-title">
+                SKUP SAMOCHODÓW<br>
+                <span class="highlight">GOTÓWKA OD RĘKI!</span>
+            </h1>
 
-                    <div class="banner-buttons">
-                        <a href="tel:+48880890947" class="btn btn-primary">
-                            <span class="btn-icon">📞</span>
-                            ZADZWOŃ TERAZ
-                        </a>
-                        <a href="#valuationForm" class="btn btn-secondary">
-                            <span class="btn-icon">🚗</span>
-                            WYCEŃ AUTO
-                        </a>
-                    </div>
+            <a href="tel:+48661486960" class="btn btn-primary">
+                📞 ZADZWOŃ TERAZ
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container contact-content">
+
+        <div class="contact-info">
+
+            <div class="contact-item highlight-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <h3>TELEFON</h3>
+                    <p><a href="tel:+48661486960" class="highlight-text">+48 661 486 960</a></p>
                 </div>
-                <div class="banner-map">
-                    <div class="map-container">
-                        <div class="simplified-map">
-                            <div class="map-title">OBSŁUGUJEMY CAŁE WOJEWÓDZTWO MAZOWIECKIE</div>
-                            <div class="covered-areas">
-                                <div class="area-item">Warszawa</div>
-                                <div class="area-item">Radom</div>
-                                <div class="area-item">Płock</div>
-                                <div class="area-item">Siedlce</div>
-                                <div class="area-item">Ostrołęka</div>
-                                <div class="area-item">Ciechanów</div>
-                                <div class="area-item">Żyrardów</div>
-                                <div class="area-item">Mińsk Maz.</div>
-                                <div class="area-item">Nowy Dwór M.</div>
-                                <div class="area-item">Wyszków</div>
-                                <div class="area-item">Garwolin</div>
-                                <div class="area-item">Grójec</div>
-                            </div>
-                            <div class="map-note">✓ Dojazd do klienta GRATIS ✓</div>
-                        </div>
-                    </div>
+            </div>
+
+            <div class="contact-item highlight-item">
+                <div class="contact-icon">📱</div>
+                <div>
+                    <h3>WHATSAPP</h3>
+                    <p><a href="https://wa.me/48661486960" class="highlight-text">+48 661 486 960</a></p>
                 </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <h3>SKUP AUT</h3>
+                <p>Profesjonalny skup samochodów</p>
+            </div>
+
+            <div>
+                <h4>KONTAKT</h4>
+                <p>📞 +48 661 486 960</p>
+                <p>📱 WhatsApp: +48 661 486 960</p>
+                <p>✉️ skupnaszybko@gmail.com</p>
             </div>
         </div>
-    </section>
 
-    <!-- Quick Form -->
-    <section class="quick-form">
-        <div class="container">
-            <div class="form-box">
-                <h2 class="form-title">DARMOWA WYCENA ONLINE</h2>
-                <p class="form-subtitle">Otrzymaj wycenę w 15 minut!</p>
-                
-                <form id="valuationForm" class="valuation-form" action="https://formspree.io/f/xzzljrqn" method="POST">
-                    <input type="hidden" name="_subject" value="Nowa wycena samochodu - Formularz online">
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" name="brand" placeholder="Marka i model" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" name="year" placeholder="Rok produkcji" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" name="mileage" placeholder="Przebieg (km)" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="engine" placeholder="Silnik (pojemność, rodzaj)" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" name="suggested_price" placeholder="Sugerowana cena (opcjonalnie)">
-                        </div>
-                        <div class="form-group">
-                            <select name="condition" required>
-                                <option value="">Stan techniczny</option>
-                                <option value="dobry">Dobry</option>
-                                <option value="sredni">Średni</option>
-                                <option value="uszkodzony">Uszkodzony</option>
-                                <option value="po_kolizji">Po kolizji</option>
-                                <option value="nie_odpala">Nie odpala</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" name="location" placeholder="Lokalizacja (miasto)" required>
-                        </div>
-                    </div>
-
-                    <!-- ZDJĘCIA -->
-                    <div class="form-group">
-                        <label class="form-label">Zdjęcia auta (informacja)</label>
-                        <div class="photo-info">
-                            <p>📸 Prosimy o przygotowanie zdjęć:</p>
-                            <ul>
-                                <li>Przód auta</li>
-                                <li>Tył auta</li>
-                                <li>Boki auta</li>
-                                <li>Wnętrze</li>
-                                <li>Uszkodzenia (jeśli występują)</li>
-                            </ul>
-                            <p>Zdjęcia można wysłać przez WhatsApp po kontakcie</p>
-                        </div>
-                    </div>
-                    
-                    <!-- DODATKOWE INFORMACJE -->
-                    <div class="form-group">
-                        <label class="form-label">Dodatkowe informacje</label>
-                        <textarea name="additional_info" placeholder="Opisz stan auta, uszkodzenia, wyposażenie, historię serwisową..." rows="4"></textarea>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Twój numer telefonu" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Twój email" required>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-submit">
-                        🚗 OTRZYMAJ WYCENĘ
-                    </button>
-                </form>
-            </div>
+        <div class="footer-bottom">
+            <p>© 2024 SKUP AUT</p>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- Why Us -->
-    <section id="about" class="why-us">
-        <div class="container">
-            <h2 class="section-title">DLACZEGO WARTO WYBRAĆ NAS?</h2>
-            <div class="advantages-grid">
-                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="advantage-icon">💵</div>
-                    <h3>NAJWYŻSZE CENY</h3>
-                    <p>Oferujemy najwyższe ceny na rynku dzięki bezpośrednim transakcjom bez pośredników. Płacimy gotówką od ręki bez zbędnych formalności i prowizji.</p>
-                </div>
-                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="advantage-icon">⚡</div>
-                    <h3>EKSPRESOWA WYCENA</h3>
-                    <p>Działamy błyskawicznie - wycenę otrzymasz w 15 minut, a całą transakcję finalizujemy w ciągu 30 minut. Oszczędzamy Twój cenny czas.</p>
-                </div>
-                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="advantage-icon">🚙</div>
-                    <h3>DOJAZD 24/7</h3>
-                    <p>Dojeżdżamy do Ciebie o każdej porze dnia i nocy, 7 dni w tygodniu. Odbierzemy Twój samochód z dowolnego miejsca w Polsce całkowicie bezpłatnie.</p>
-                </div>
-                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="advantage-icon">🔄</div>
-                    <h3>KAŻDY STAN AUTA</h3>
-                    <p>Kupujemy samochody w każdym stanie technicznym - sprawne, uszkodzone, powypadkowe, z zadłużeniem lub bez dokumentów. Każde auto ma dla nas wartość.</p>
-                </div>
-                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="advantage-icon">📋</div>
-                    <h3>BEZPIECZNE TRANSAKCJE</h3>
-                    <p>Gwarantujemy bezpieczne i uczciwe transakcje. Wszystkie formalności załatwiamy za Ciebie, zapewniając pełną ochronę prawną i przejrzyste warunki współpracy.</p>
-                </div>
-                <div class="advantage" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="advantage-icon">⭐</div>
-                    <h3>DOŚWIADCZENIE</h3>
-                    <p>Dzięki wieloletniemu doświadczeniu w skupie aut oferujemy profesjonalną obsługę i rzetelne wyceny. Zaufaj specjalistom w branży motoryzacyjnej.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Offer -->
-    <section id="offer" class="offer">
-        <div class="container">
-            <h2 class="section-title">KUPUJEMY KAŻDY SAMOCHÓD</h2>
-            <div class="offer-grid">
-                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="offer-icon">🚗</div>
-                    <h3>OSOBOWE</h3>
-                    <p>Samochody osobowe wszystkich marek</p>
-                </div>
-                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="offer-icon">💥</div>
-                    <h3>POWYPADKOWE</h3>
-                    <p>Auta po kolizjach i wypadkach</p>
-                </div>
-                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="offer-icon">🚛</div>
-                    <h3>DOSTAWCZE</h3>
-                    <p>Vany, busy, samochody dostawcze</p>
-                </div>
-                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="offer-icon">💰</div>
-                    <h3>ZADŁUŻONE</h3>
-                    <p>Auta z obciążeniami i długami</p>
-                </div>
-                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="offer-icon">🏁</div>
-                    <h3>SPORTOWE</h3>
-                    <p>Samochody sportowe i tuningowane</p>
-                </div>
-                <div class="offer-item" onclick="document.getElementById('valuationForm').scrollIntoView({behavior: 'smooth'})">
-                    <div class="offer-icon">🔧</div>
-                    <h3>DO NAPRAWY</h3>
-                    <p>Wymagające remontu i regeneracji</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">SKONTAKTUJ SIĘ Z NAMI</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item highlight-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
-                            <h3>TELEFON</h3>
-                            <p><a href="tel:+48880890947" class="highlight-text">+48 880 890 947</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item highlight-item">
-                        <div class="contact-icon">📱</div>
-                        <div>
-                            <h3>WHATSAPP</h3>
-                            <p><a href="https://wa.me/48880890947" class="highlight-text">+48 880 890 947</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div>
-                            <h3>EMAIL</h3>
-                            <p><a href="mailto:skupnaszybko@gmail.com">skupnaszybko@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🕒</div>
-                        <div>
-                            <h3>GODZINY OTWARCIA</h3>
-                            <p>7 dni w tygodniu 24h otwarte</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form" id="form">
-                    <h3>FORMULARZ KONTAKTOWY</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Imię i nazwisko" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Numer telefonu" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Marka i model auta" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Dodatkowe informacje..." rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-submit">
-                            📩 WYŚLIJ ZAPYTANIE
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>SKUP AUT</h3>
-                    <p>Profesjonalny skup samochodów<br>Gotówka od ręki</p>
-                </div>
-                <div class="footer-section">
-                    <h4>KONTAKT</h4>
-                    <p>📞 +48 880 890 947</p>
-                    <p>📱 WhatsApp: +48 880 890 947</p>
-                    <p>✉️ skupnaszybko@gmail.com</p>
-                </div>
-                <div class="footer-section">
-                    <h4>GODZINY</h4>
-                    <p>7 dni w tygodniu 24h otwarte</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 SKUP AUT. Wszelkie prawa zastrzeżone.</p>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
